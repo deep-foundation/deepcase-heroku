@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "migrate": "export MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007; export MIGRATIONS_HASURA_PATH=localhost:8080; export MIGRATIONS_HASURA_SSL=0; export MIGRATIONS_HASURA_SECRET=myadminsecretkey; (cd node_modules/@deepcase/deeplinks; npm run unmigrate; npm run migrate;)",
+    "heroku-start": "node start.js",
+    "build": "NEXT_PUBLIC_DEEP_FOUNDATION_HASURA_RELATIVE=1 NEXT_PUBLIC_DEEPLINKS_SERVER='' NEXT_PUBLIC_HASURA_SSL=1 NEXT_PUBLIC_HASURA_PATH=hasura PORT=$NEXTPORT next build",
+    "heroku-next-start": "next start -p $PORT"
+  },
+  "heroku-run-build-script": false,
+  "dependencies": {
+    "@deepcase/deeplinks": "0.0.34",
+    "dotenv": "^8.2.0",
+    "dotenv-load": "^2.0.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "next": "^10.2.3",
+    "next-env": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=15.10",
+    "npm": ">=7.5.3"
+  }
+}

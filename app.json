@@ -1,0 +1,43 @@
+  { 
+  "name": "Deeplinks app",
+  "description": "Deeplinks app.",
+  "keywords": [
+    "nodejs",
+    "postgresql",
+    "hasura"
+  ],
+  "website": "https://deep.foundation/",
+  "repository": "https://github.com/deepcase/deeplinks",
+  "success_url": "/",
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Dont use devDependencies.",
+      "value": "true"
+    },
+    "NEXTPORT": {
+      "description": "App port.",
+      "value": "3007"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/Menzorg/hasura-1.3.2-buildpack.git"
+    },
+    {
+      "url": "https://github.com/carloluis/heroku-buildpack-vim"
+    },
+    {
+      "url": "heroku-community/apt"
+    },
+    {
+      "url": "heroku/nodejs"
+    }],
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ]
+}
