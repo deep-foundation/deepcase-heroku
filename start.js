@@ -29,6 +29,7 @@ const deeplinksApp = spawn('npm', ['run', 'heroku-next-start'], {
     env: {
       ...process.env,
       PORT: 3007
+    }
   });
 
 gql.stdout.on('data', (data) => {
