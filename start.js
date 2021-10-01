@@ -12,7 +12,7 @@ app.use('/hasura', createProxyMiddleware({
     "^/hasura": "/",
   }
 }));
-app.use('/', createProxyMiddleware({ target: `http://localhost:${process.env.NEXTPORT}`, changeOrigin: true }));
+app.use('/', createProxyMiddleware({ target: `http://localhost:3007`, changeOrigin: true }));
 app.listen(process.env.PORT, () => {
   console.log(`Hello bugfixers! Wrapped app listening at ${process.env.PORT} port`);
 })
@@ -28,8 +28,7 @@ const gql = spawn('./graphql-engine', ['serve'], {
 const deeplinksApp = spawn('npm', ['run', 'heroku-next-start'], {
     env: {
       ...process.env,
-      PORT: process.env.NEXTPORT
-    }
+      PORT: 3007
   });
 
 gql.stdout.on('data', (data) => {
