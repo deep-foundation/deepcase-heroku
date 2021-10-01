@@ -73,7 +73,8 @@ function Graphiql({
   const token = (0,_deepcase_react_hasura_token_context__WEBPACK_IMPORTED_MODULE_6__.useToken)() || '';
   const fetcher = (0,react__WEBPACK_IMPORTED_MODULE_4__.useMemo)(() => {
     return (0,_graphiql_toolkit__WEBPACK_IMPORTED_MODULE_2__.createGraphiQLFetcher)({
-      url: `http${_provider__WEBPACK_IMPORTED_MODULE_3__/* .GRAPHQL_SSL */ .Cp ? 's' : ''}://${_provider__WEBPACK_IMPORTED_MODULE_3__/* .GRAPHQL_PATH */ .ei}`
+      // url: `http${_provider__WEBPACK_IMPORTED_MODULE_3__/* .GRAPHQL_SSL */ .Cp ? 's' : ''}://${_provider__WEBPACK_IMPORTED_MODULE_3__/* .GRAPHQL_PATH */ .ei}`
+      url: `${_provider__WEBPACK_IMPORTED_MODULE_3__/* .GRAPHQL_PATH */ .ei}`
     });
   }, []);
   const {
