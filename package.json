@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "migrate": "export MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007; export MIGRATIONS_HASURA_PATH=localhost:8080; export MIGRATIONS_HASURA_SSL=0; export MIGRATIONS_HASURA_SECRET=myadminsecretkey; (cd node_modules/@deep-foundation/deeplinks; npm run unmigrate; npm run migrate;)",
+    "migrate": "export npm_config_yes=true MIGRATIONS_ID_TYPE_SQL=bigint MIGRATIONS_ID_TYPE_GQL=bigint MIGRATIONS_HASURA_PATH=localhost:8080 MIGRATIONS_HASURA_SSL=0 MIGRATIONS_HASURA_SECRET=myadminsecretkey NEXT_PUBLIC_DEEPLINKS_SERVER=http://localhost:3007 NEXT_PUBLIC_HASURA_PATH=localhost:8080 NEXT_PUBLIC_HASURA_SSL=0 HASURA_PATH=localhost:8080 HASURA_SSL=0 MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007 DEBUG='deepcase:*' ; (cd node_modules/@deep-foundation/deeplinks; npm run unmigrate; npm run migrate;)",
     "heroku-start": "node start.js",
     "heroku-postbuild": "(cd deepcase && npm ci && npm run build)",
     "heroku-next-start": "(cd deepcase && npm run start -- -p $PORT)"
@@ -18,3 +18,5 @@
     "node": "^14.15.0"
   }
 }
+
+
