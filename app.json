@@ -11,7 +11,7 @@
   "success_url": "/",
   "buildpacks": [
     {
-      "url": "https://github.com/johnpryan/heroku-buildpack-submodules.git"
+      "url": "https://github.com/dmathieu/heroku-buildpack-submodules"
     },
     {
       "url": "https://github.com/Menzorg/hasura-1.3.2-buildpack.git"
