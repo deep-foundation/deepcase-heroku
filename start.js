@@ -22,6 +22,7 @@ const gql = spawn('./graphql-engine', ['serve'], {
   env: {
     ...process.env,
     HASURA_GRAPHQL_DATABASE_URL: url,
+    HASURA_GRAPHQL_ENABLE_CONSOLE: true,
   }
 });
 
@@ -69,18 +70,18 @@ var opts = {
   tcpTimeout: 1000, // tcp timeout in ms, default 300ms
 };
 
-waitOn(opts, function (err) {
-  if (err) {
-    console.log(`{ "logtype": "migrations", "log": "err"`);
-  }
-  migrations = spawn('npm', ['run', 'migrate']);
-  deeplinksApp.stderr.on('data', (data) => {
-    console.log(`{ "logtype": "migrations", "error": ${data}`);
-  });
-  migrations.stdout.on('data', (data) => {
-   console.log(`{ "logtype": "migrations", "log": "${data}"`);
-  });
-  migrations.on('close', (code) => {
-    console.log(`migrations exited with code ${code}`);
-  });
-});
+// waitOn(opts, function (err) {
+//   if (err) {
+//     console.log(`{ "logtype": "migrations", "log": "err"`);
+//   }
+//   migrations = spawn('npm', ['run', 'migrate']);
+//   deeplinksApp.stderr.on('data', (data) => {
+//     console.log(`{ "logtype": "migrations", "error": ${data}`);
+//   });
+//   migrations.stdout.on('data', (data) => {
+//    console.log(`{ "logtype": "migrations", "log": "${data}"`);
+//   });
+//   migrations.on('close', (code) => {
+//     console.log(`migrations exited with code ${code}`);
+//   });
+// });
