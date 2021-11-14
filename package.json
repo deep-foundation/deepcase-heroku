@@ -2,9 +2,8 @@
   "scripts": {
     "migrate": "export MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007; export MIGRATIONS_HASURA_PATH=localhost:8080; export MIGRATIONS_HASURA_SSL=0; export MIGRATIONS_HASURA_SECRET=myadminsecretkey; (cd node_modules/@deep-foundation/deeplinks; npm run unmigrate; npm run migrate;)",
     "heroku-start": "node start.js",
-    "heroku-prebuild": "(cd deepcase && npm ci)",
-    "heroku-postbuild": "(cd deepcase && npm run build)",
-    "heroku-next-start": "(cd deepcase && next start -p 3007)"
+    "heroku-postbuild": "(cd deepcase && npm ci)",
+    "heroku-next-start": "(cd deepcase && next dev -p 3007)"
   },
   "heroku-run-build-script": false,
   "dependencies": {
