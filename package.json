@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "migrate": "export MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007; export MIGRATIONS_HASURA_PATH=localhost:8080; export MIGRATIONS_HASURA_SSL=0; export MIGRATIONS_HASURA_SECRET=myadminsecretkey; export DEBUG=deeplinks:*; (cd deeplinks; npm ci; npm run unmigrate; npm run migrate;)",
+    "migrate": "export MIGRATIONS_DEEPLINKS_APP_URL=localhost:3007; export MIGRATIONS_HASURA_PATH=localhost:8080; export MIGRATIONS_HASURA_SSL=0; export MIGRATIONS_HASURA_SECRET=myadminsecretkey; export DEBUG=deeplinks:*; (cd deeplinks; npm ci; npm i ts-node; npm run unmigrate; npm run migrate;)",
     "heroku-start": "node start.js",
     "heroku-postbuild": "export PORT=3007 NEXT_PUBLIC_HASURA_SSL=1 NEXT_PUBLIC_HASURA_PATH='/hasura' NEXT_PUBLIC_DEEP_FOUNDATION_HASURA_RELATIVE=1 && cd deepcase && npm ci && npm run build",
     "heroku-next-start": "(cd deepcase && npm run start -- -p $PORT)"
