@@ -9,6 +9,12 @@
   "website": "https://deep.foundation/",
   "repository": "https://github.com/deepcase/deeplinks",
   "success_url": "/",
+  "env": {
+    "NODE_MODULES_CACHE": {
+      "description": "NODE_MODULES_CACHE",
+      "value": "false"
+    }
+  },
   "buildpacks": [
     {
       "url": "https://github.com/dmathieu/heroku-buildpack-submodules"
