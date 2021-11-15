@@ -1,3 +1,6 @@
 [submodule "deepcase"]
 	path = deepcase
 	url = https://github.com/deep-foundation/deepcase
+[submodule "deeplinks"]
+	path = deeplinks
+	url = https://github.com/deep-foundation/deeplinks
