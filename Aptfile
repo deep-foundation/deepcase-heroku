@@ -1,1 +1,1 @@
-libpq5 libpq-dev unixodbc-dev
+libpq5 libpq-dev unixodbc-dev libmariadb3
