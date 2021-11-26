@@ -4,8 +4,6 @@ var waitOn = require('wait-on');
 var express = require('express');
 var app = express();
 
-const local = process.env.LOCAL;
-
 app.use('/hasura', createProxyMiddleware({
   target: 'http://localhost:8080',
   changeOrigin: true,
@@ -19,7 +17,6 @@ app.listen(process.env.PORT, () => {
   console.log(`Hello bugfixers! Wrapped app listening at ${process.env.PORT} port`);
 })
 
-const url = execSync('echo -n $DATABASE_URL', { encoding: 'utf-8' });
 
 const deeplinksApp = spawn('npm', ['run', 'heroku-next-start'], {
     env: {
@@ -27,28 +24,6 @@ const deeplinksApp = spawn('npm', ['run', 'heroku-next-start'], {
       PORT: 3007
     }
   });
-
-if (!local){
-  const gql = spawn('./graphql-engine', ['serve'], {
-    env: {
-      ...process.env,
-      HASURA_GRAPHQL_DATABASE_URL: url,
-      HASURA_GRAPHQL_ENABLE_CONSOLE: true,
-    }
-  });
-  
-  gql.stdout.on('data', (data) => {
-    console.log(`{ "logtype": "hasura", "log": ${data}`);
-  });
-  
-  gql.stderr.on('data', (data) => {
-    console.log(`{ "logtype": "hasura", "error": ${data}`);
-  });
-  
-  gql.on('close', (code) => {
-    console.log(`gql exited with code ${code}`);
-  });
-}
 
 deeplinksApp.stdout.on('data', (data) => {
  console.log(`{ "logtype": "app", "log": ${data}`);
